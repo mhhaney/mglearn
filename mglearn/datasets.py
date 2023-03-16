@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 from scipy import signal
-from sklearn.datasets import load_boston
+from sklearn.datasets import fetch_california_housing 
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
 from .make_blobs import make_blobs
 
@@ -28,7 +28,8 @@ def make_wave(n_samples=100):
 
 
 def load_extended_boston():
-    boston = load_boston()
+    print("Note: This is now loading the California Housing dataset.")
+    boston = fetch_california_housing()
     X = boston.data
 
     X = MinMaxScaler().fit_transform(boston.data)
